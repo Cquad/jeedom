@@ -75,6 +75,6 @@ COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 RUN echo "* * * * * su --shell=/bin/bash - www-data -c '/usr/bin/php /usr/share/nginx/www/jeedom/core/php/jeeCron.php' >> /dev/null 2>&1" | crontab -
 
-EXPOSE 8080 8070 9001 443
+EXPOSE 8080 9001 443
 CMD ["/usr/bin/supervisord"]
 
