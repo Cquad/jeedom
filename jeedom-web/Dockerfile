@@ -31,7 +31,8 @@ RUN apt-get update && apt-get install -y \
 	supervisor \
 	nginx-common \
 	nginx-full \
-	mysql-client 
+	mysql-client \
+	wget
 
 
 RUN pecl install oauth
