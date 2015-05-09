@@ -48,9 +48,9 @@ docker run -d --name jeedom-web --volumes-from jeedom-data \
 If you'd like to be able to access the instance from the host without the container's IP, standard port mappings can be used:
 
 ```
-docker run -d --name jeedom-web  \	
+docker run -d --name jeedom-web  --volumes-from jeedom-data \
 	--link jeedom-mysql:mysql \
-	--link jeedom-nodejs:nodejs \ 
+	--link jeedom-nodejs:nodejs \
 	-p 8080:8080 cquad/jeedom-web
 ```
 
@@ -59,9 +59,9 @@ Then, access it via http://localhost:8080 or http://host-ip:8080 in a browser.
 If you'd like to use an usb device (such as Zwave Stick), device mappings can be used :
 
 ```
-docker run -d --name jeedom-web  \	
+docker run -d --name jeedom-web --volumes-from jeedom-data \
 	--link jeedom-mysql:mysql \
-	--link jeedom-nodejs:nodejs \ 
+	--link jeedom-nodejs:nodejs \
 	--device=/dev/ttyACM0:/dev/ttyACM0 \
 	-p 8080:8080 cquad/jeedom-web
 ```
