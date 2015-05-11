@@ -68,3 +68,14 @@ docker run -d --name jeedom-web --volumes-from jeedom-data \
 
 if USB Key is used, you also have to map 8083 for OpenZwave service.
 
+You can specify a specific host name for container with -h option :
+
+```
+docker run -d --name jeedom-web --volumes-from jeedom-data \
+        --link jeedom-mysql:mysql \
+        --link jeedom-nodejs:nodejs \
+        --device=/dev/ttyACM0:/dev/ttyACM0 \
+        -h name.domain \
+	-p 8080:8080 -p 8083:8083 cquad/jeedom-web
+
+```
