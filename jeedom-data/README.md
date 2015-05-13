@@ -35,7 +35,6 @@ And finally the main container, web front :
 ```
 docker run -d --name jeedom-web --volumes-from jeedom-data \
 	--link jeedom-mysql:mysql \
-	--link jeedom-nodejs:nodejs \
 	cquad/jeedom-web
 ```
 
@@ -44,20 +43,22 @@ If you'd like to be able to access the instance from the host without the contai
 ```
 docker run -d --name jeedom-web  --volumes-from jeedom-data \
 	--link jeedom-mysql:mysql \
-	--link jeedom-nodejs:nodejs \
-	-p 8080:8080 cquad/jeedom-web
+	-p 80:80 \
+	-p 8070:8070 \
+	cquad/jeedom-web
 ```
 
-Then, access it via http://localhost:8080 or http://host-ip:8080 in a browser.
+Then, access it via http://localhost:80 or http://host-ip:80 in a browser.
 
 If you'd like to use an usb device (such as Zwave Stick), device mappings can be used :
 
 ```
 docker run -d --name jeedom-web --volumes-from jeedom-data \
 	--link jeedom-mysql:mysql \
-	--link jeedom-nodejs:nodejs \
 	--device=/dev/ttyACM0:/dev/ttyACM0 \
-	-p 8080:8080 -p 8083:8083 cquad/jeedom-web
+	-p 80:80 \
+	-p 8070:8070 \
+	-p 8083:8083 cquad/jeedom-web
 ```
 
 if USB Key is used, you also have to map 8083 for OpenZwave service.
@@ -67,9 +68,10 @@ You can specify a specific host name for container with -h option :
 ```
 docker run -d --name jeedom-web --volumes-from jeedom-data \
         --link jeedom-mysql:mysql \
-        --link jeedom-nodejs:nodejs \
         --device=/dev/ttyACM0:/dev/ttyACM0 \
         -h name.domain \
-	-p 8080:8080 -p 8083:8083 cquad/jeedom-web
+	-p 80:80 \
+	-p 8070:8070 \
+	-p 8083:8083 cquad/jeedom-web
 
 ```
