@@ -30,12 +30,6 @@ Launch a data container. This data container will install jeedom on mysql DB :
 docker run --name jeedom-data --link jeedom-mysql:mysql cquad/jeedom-data
 ```
 
-A container with nodejs :
-
-```
-docker run -d --name jeedom-nodejs --volumes-from jeedom-data cquad/jeedom-nodejs
-```
-
 And finally the main container, web front :
 
 ```
