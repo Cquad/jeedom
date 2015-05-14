@@ -75,3 +75,24 @@ docker run -d --name jeedom-web --volumes-from jeedom-data \
 	-p 8083:8083 cquad/jeedom-web
 
 ```
+
+Jeedom generate a Key used to access to the Jeedom Market. This key is based on mac-address and a random string in database.
+When you run a new jeedom-web container, you generate a new jeedom market Key, but we are limited and only two keys are possible on market per month.
+So if you want to keep your key, you have to use the same mac address as your old container.
+
+```
+docker inspect jeedom-web | grep "MacAddress"
+```
+
+And run the new container with mac address specification :
+
+```
+docker run -d --name jeedom-web --volumes-from jeedom-data \
+        --link jeedom-mysql:mysql \
+        --device=/dev/ttyACM0:/dev/ttyACM0 \
+        -h name.domain \
+	--mac-address="02:42:ac:11:02:5d" \
+        -p 80:80 \
+        -p 8070:8070 \
+        -p 8083:8083 cquad/jeedom-web
+```
