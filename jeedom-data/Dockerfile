@@ -3,13 +3,13 @@ FROM debian:latest
 ENV JEEDOM_UPSTREAM_VERSION 1.184
 
 RUN apt-get update && apt-get install -y \
-    wget \
-    unzip \
-    mysql-client \
-    adduser \
-    php5-cli \
-    php5-mysql \
-    git
+	adduser \
+	git \
+	mysql-client \
+	php5-cli \
+	php5-mysql \
+	unzip \
+	wget
 
 # installation nginx
 RUN mkdir -p /usr/share/nginx/www
