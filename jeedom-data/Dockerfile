@@ -1,5 +1,7 @@
 FROM debian:latest
 
+ENV JEEDOM_UPSTREAM_VERSION 1.184
+
 RUN apt-get update && apt-get install -y \
     wget \
     unzip \
@@ -11,10 +13,11 @@ RUN apt-get update && apt-get install -y \
 # installation nginx
 RUN mkdir -p /usr/share/nginx/www/jeedom
 
-WORKDIR /usr/share/nginx/www/jeedom
+WORKDIR /usr/share/nginx/www/
 
 # téléchargement de l'archive
-RUN wget --no-check-certificate -O jeedom.zip https://market.jeedom.fr/jeedom/stable/jeedom.zip && unzip jeedom.zip
+#RUN wget --no-check-certificate -O jeedom.zip https://market.jeedom.fr/jeedom/stable/jeedom.zip && unzip jeedom.zip
+RUN git clone https://github.com/jeedom/core.git jeedom && git checkout ${JEEDOM_UPSTREAM_VERSION}
 
 # ajout au préalable d'un dossier tmp
 RUN mkdir -p ./tmp
