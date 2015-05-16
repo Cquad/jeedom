@@ -8,19 +8,20 @@ RUN apt-get update && apt-get install -y \
     mysql-client \
     adduser \
     php5-cli \
-    php5-mysql
+    php5-mysql \
+    git
 
 # installation nginx
-RUN mkdir -p /usr/share/nginx/www/jeedom
+RUN mkdir -p /usr/share/nginx/www
 
 WORKDIR /usr/share/nginx/www/
 
 # téléchargement de l'archive
 #RUN wget --no-check-certificate -O jeedom.zip https://market.jeedom.fr/jeedom/stable/jeedom.zip && unzip jeedom.zip
-RUN git clone https://github.com/jeedom/core.git jeedom && git checkout ${JEEDOM_UPSTREAM_VERSION}
+RUN git clone https://github.com/jeedom/core.git jeedom && cd jeedom && git checkout ${JEEDOM_UPSTREAM_VERSION}
 
 # ajout au préalable d'un dossier tmp
-RUN mkdir -p ./tmp
+RUN mkdir -p /usr/share/nginx/www/jeedom/tmp
 
 # définition des droits utilisateur/groupes/autres de manière récursif
 RUN chmod 755 -R /usr/share/nginx/www/jeedom
@@ -32,7 +33,7 @@ RUN chown -R www-data:www-data /usr/share/nginx/www/jeedom
 RUN adduser www-data dialout
 
 # on copie le fichier de configuration d'exemple 
-RUN cp ./core/config/common.config.sample.php ./core/config/common.config.php
+RUN cp /usr/share/nginx/www/jeedom/core/config/common.config.sample.php /usr/share/nginx/www/jeedom/core/config/common.config.php
 
 VOLUME /usr/share/nginx/www/jeedom/
 
