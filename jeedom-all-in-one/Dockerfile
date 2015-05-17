@@ -96,6 +96,8 @@ RUN chown -R www-data:www-data /usr/share/nginx/www/jeedom
 # ajout de l'utilisateur www-data au group dialout (pour piloter la connexion 3G éventuelle)
 RUN adduser www-data dialout
 
+RUN echo "www-data ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
 # on copie le fichier de configuration d'exemple 
 RUN cp /usr/share/nginx/www/jeedom/core/config/common.config.sample.php /usr/share/nginx/www/jeedom/core/config/common.config.php
 
