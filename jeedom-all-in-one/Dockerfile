@@ -23,6 +23,7 @@ RUN apt-get update && apt-get install -y \
 	libtinyxml-dev \
 	libudev1 \
 	libxml2 \
+	locales \
 	miniupnpc \
 	mysql-client \
 	mysql-common \
@@ -47,6 +48,12 @@ RUN apt-get update && apt-get install -y \
 	systemd \	
 	unzip \
 	usb-modeswitch 
+
+RUN dpkg-reconfigure locales && \
+    locale-gen C.UTF-8 && \
+    /usr/sbin/update-locale LANG=C.UTF-8
+
+ENV LC_ALL C.UTF-8
 
 RUN pecl install oauth
 
