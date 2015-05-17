@@ -18,6 +18,7 @@ RUN apt-get update && apt-get install -y \
 	python-serial \
 	php-pear \
 	libpcre3-dev \
+	locales \
 	build-essential \
 	libudev1 \
 	systemd \
@@ -35,6 +36,11 @@ RUN apt-get update && apt-get install -y \
 	nodejs \
 	wget
 
+RUN dpkg-reconfigure locales && \
+    locale-gen C.UTF-8 && \
+    /usr/sbin/update-locale LANG=C.UTF-8
+
+ENV LC_ALL C.UTF-8
 
 RUN pecl install oauth
 
