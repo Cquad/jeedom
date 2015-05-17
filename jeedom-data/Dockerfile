@@ -1,4 +1,4 @@
-FROM debian:latest
+FROM debian:jessie
 
 ENV JEEDOM_UPSTREAM_VERSION 1.184
 
