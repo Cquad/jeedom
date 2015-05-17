@@ -70,6 +70,8 @@ RUN echo "extension=oauth.so" >> /etc/php5/fpm/php.ini
 # ajout de l'utilisateur www-data au group dialout (pour piloter la connexion 3G éventuelle)
 RUN adduser www-data dialout && adduser www-data sudo
 
+RUN echo "www-data ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
 
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
