@@ -117,14 +117,7 @@ COPY docker-entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
 
 
-#ADD create_jeedom_db.sql /tmp/create_jeedom_db.sql
-#RUN sed -i "s/#PASSWORD#/${MYSQL_JEEDOM_PASSWORD}/g" /tmp/create_jeedom_db.sql
-#ADD init_jeedom_db.sh /tmp/init_jeedom_db.sh
-
-#RUN sh /tmp/init_jeedom_db.sh
-
-#ADD install_jeedom.sh /tmp/install_jeedom.sh
-#RUN sh /tmp/install_jeedom.sh
+RUN sed -i "s/PermitRootLogin without-password/PermitRootLogin yes/g" /etc/ssh/sshd_config
 
 #ADD nginx.conf /etc/nginx/sites-available/default
 RUN echo "daemon off;" >> /etc/nginx/nginx.conf
