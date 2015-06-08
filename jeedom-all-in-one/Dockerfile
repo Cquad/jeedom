@@ -127,7 +127,7 @@ RUN mkdir -p /var/run/sshd /var/log/supervisor
 
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-RUN echo "* * * * * su --shell=/bin/bash - www-data -c 'nice -n 19 /usr/bin/php /usr/share/nginx/jeedom/www/core/php/jeeCron.php' >> /dev/null" | crontab -
+RUN echo "* * * * * su --shell=/bin/bash - www-data -c 'nice -n 19 /usr/bin/php /usr/share/nginx/www/jeedom/core/php/jeeCron.php' >> /dev/null" | crontab -
 
 WORKDIR /usr/share/nginx/www/jeedom
 
