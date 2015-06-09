@@ -7,6 +7,7 @@ RUN apt-get update && apt-get install -y \
 	git \
 	mysql-client \
 	php5-cli \
+	php5-curl \
 	php5-mysql \
 	unzip \
 	wget
