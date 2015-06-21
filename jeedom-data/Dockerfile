@@ -1,6 +1,6 @@
 FROM debian:jessie
 
-ENV JEEDOM_UPSTREAM_VERSION 1.188
+ENV JEEDOM_UPSTREAM_VERSION 1.193
 
 RUN apt-get update && apt-get install -y \
 	adduser \
