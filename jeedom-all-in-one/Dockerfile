@@ -13,6 +13,7 @@ RUN apt-get update && apt-get install -y \
 	adduser \
 	build-essential \
 	cron \
+	curl \
 	libarchive-dev \
 	libav-tools \
 	libjsoncpp-dev \
