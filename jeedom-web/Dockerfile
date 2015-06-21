@@ -5,6 +5,7 @@ MAINTAINER cedric.olivier@free.fr
 RUN apt-get update && apt-get install -y \
 	build-essential \
 	cron \
+	curl \
 	libarchive-dev \
 	libav-tools \
 	libjsoncpp-dev \
@@ -31,7 +32,7 @@ RUN apt-get update && apt-get install -y \
 	python-serial \
 	sudo \
 	supervisor \
-	systemd \	
+	systemd \
 	unzip \
 	usb-modeswitch \
 	wget
