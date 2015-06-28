@@ -3,37 +3,38 @@ FROM debian:jessie
 MAINTAINER cedric.olivier@free.fr
 
 RUN apt-get update && apt-get install -y \
-	miniupnpc \
-	libssh2-php \
-	ntp \
-	unzip \
-	php5-common \
-	php5-fpm \
-	php5-dev \
-	php5-cli \
-	php5-curl \
-	php5-json \
-	php5-mysql \
-	usb-modeswitch \
-	python-serial \
-	php-pear \
-	libpcre3-dev \
-	locales \
 	build-essential \
-	libudev1 \
-	systemd \
-	libtinyxml-dev \
-	libav-tools \
 	cron \
-	libjsoncpp-dev \
-	libxml2 \
 	libarchive-dev \
-	sudo \
-	supervisor \
+	libav-tools \
+	libjsoncpp-dev \
+	libpcre3-dev \
+	libssh2-php \
+	libtinyxml-dev \
+	libudev1 \
+	libxml2 \
+	locales \
+	miniupnpc \
+	mysql-client \
 	nginx-common \
 	nginx-full \
-	mysql-client \
 	nodejs \
+	npm \
+	ntp \
+	php5-cli \
+	php5-common \
+	php5-curl \
+	php5-dev \
+	php5-fpm \
+	php5-json \
+	php5-mysql \
+	php-pear \
+	python-serial \
+	sudo \
+	supervisor \
+	systemd \
+	unzip \
+	usb-modeswitch \
 	wget
 
 RUN dpkg-reconfigure locales && \
