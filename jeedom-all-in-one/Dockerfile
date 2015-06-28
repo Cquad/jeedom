@@ -34,6 +34,7 @@ RUN apt-get update && apt-get install -y \
 	nginx-full \
 	nodejs \
 	ntp \
+	npm \
 	openssh-server \
 	php5-cli \
 	php5-common \

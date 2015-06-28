@@ -21,6 +21,7 @@ RUN apt-get update && apt-get install -y \
 	nginx-full \
 	nodejs \
 	ntp \
+	npm \
 	php5-cli \
 	php5-common \
 	php5-curl \
