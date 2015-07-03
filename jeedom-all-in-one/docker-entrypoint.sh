@@ -89,5 +89,10 @@ EOPHP
 
 php /usr/share/nginx/www/jeedom/install/install.php mode=force
 
+if [ "$JEEDOM_DB_HOST" = "localhost" ]
+then
+  /usr/bin/mysqladmin --user=${JEEDOM_DB_USER} --password=${JEEDOM_DB_PASSWORD} shutdown
+fi
+
 exec "$@"
 
