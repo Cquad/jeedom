@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y \
 	locales \
 	miniupnpc \
 	mysql-client \
+	net-tools \
 	nginx-common \
 	nginx-full \
 	nodejs \
