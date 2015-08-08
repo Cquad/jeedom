@@ -29,6 +29,7 @@ RUN apt-get update && apt-get install -y \
 	mysql-common \
 	mysql-server \
 	mysql-server-core \
+	net-tools \
 	nginx-common \
 	nginx-full \
 	nodejs \
