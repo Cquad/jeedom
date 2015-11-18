@@ -135,7 +135,7 @@ RUN echo "* * * * * su --shell=/bin/bash - www-data -c 'nice -n 19 /usr/bin/php 
 
 WORKDIR /usr/share/nginx/www/jeedom
 
-EXPOSE 80 8070 8083 9001 443 22 17100
+EXPOSE 80 8070 8083 9001 443 22 10000 17100
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["/usr/bin/supervisord"]
 
