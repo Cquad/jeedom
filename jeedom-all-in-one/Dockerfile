@@ -5,7 +5,7 @@ MAINTAINER cedric.olivier@free.fr
 ENV JEEDOM_DB_HOST localhost
 ENV JEEDOM_DB_PASSWORD jeedom
 ENV SHELL_ROOT_PASSWORD jeedom
-ENV JEEDOM_UPSTREAM_VERSION 1.199
+ENV JEEDOM_UPSTREAM_VERSION 1.212
 
 RUN echo "mysql-server mysql-server/root_password password ${JEEDOM_DB_PASSWORD}" | debconf-set-selections
 RUN echo "mysql-server mysql-server/root_password_again password ${JEEDOM_DB_PASSWORD}" | debconf-set-selections
