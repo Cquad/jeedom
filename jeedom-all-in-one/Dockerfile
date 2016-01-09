@@ -58,8 +58,8 @@ RUN dpkg-reconfigure locales && \
 
 ENV LC_ALL C.UTF-8
 
+#RUN pecl install oauth
 
-RUN pecl install oauth
 
 RUN apt-get autoremove
 
