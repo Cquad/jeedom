@@ -15,7 +15,9 @@ RUN mkdir -p /usr/share/nginx/www/jeedom
 WORKDIR /usr/share/nginx/www/jeedom
 
 # téléchargement de l'archive
-RUN wget --no-check-certificate -O jeedom.zip https://market.jeedom.fr/jeedom/stable/jeedom.zip && unzip jeedom.zip
+
+RUN wget --no-check-certificate -O jeedom.zip https://github.com/jeedom/core/archive/master.zip && unzip jeedom.zip
+RUN mv core-master/* .
 
 # ajout au préalable d'un dossier tmp
 RUN mkdir -p ./tmp
